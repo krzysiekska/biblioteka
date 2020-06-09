@@ -1,5 +1,7 @@
 import com.datastax.oss.driver.api.core.CqlSession;
 
+import java.util.Scanner;
+
 public class MainBuilder {
     public static void main(String[] args) {
         int i=0;
@@ -12,12 +14,12 @@ public class MainBuilder {
 
             BibliotekaTableBuilderMenager tableManager = new BibliotekaTableBuilderMenager(session);
             tableManager.createTable();
+            tableManager.insertIntoTable();
+            System.out.println("Witaj w bibliotece casandry!\n Podaj cyfrę aby: \n 1:Zaktualizuj Dane w tabeli\n 2.Prosty Select\n 3.Usun dane z tabeli\n");
+            Scanner scanner = new Scanner(System.in);
+            i=scanner.nextInt();
 
-            System.out.println("Witaj w bibliotece casandry!\n Podaj cyfrę aby: \n0:Dodaj Dane do tabeli\n 1:Zaktualizuj Dane w tabeli\n 2.Prosty Select\n 3.Usun dane z tabeli\n");
                 switch (i) {
-                    case 0:
-                        tableManager.insertIntoTable();
-                        break;
                     case 1:
                         tableManager.updateIntoTable();
                         break;

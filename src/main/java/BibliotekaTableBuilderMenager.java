@@ -78,7 +78,7 @@ public class BibliotekaTableBuilderMenager extends SimpleMenager {
             System.out.print("{" + address.getString("street") + ", " + address.getInt("houseNumber") + ", "
                     + address.getInt("apartmentNumber") + "}" + ", ");
             System.out.print(row.getSet("books", String.class) + ", ");
-            System.out.print(row.getMap("balance", String.class, Double.class) + ", ");
+            System.out.print(row.getDouble("balance") + ", ");
             System.out.println();
         }
         System.out.println("Statement \"" + statement.getQuery() + "\" executed successfully");
